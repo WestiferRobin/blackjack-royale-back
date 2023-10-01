@@ -1,0 +1,30 @@
+version: '3'
+services:
+  blackjack-royale-db:  # Updated service name
+    image: postgres:latest
+    container_name: blackjack-royale-db  # Updated container name
+    environment:
+      POSTGRES_DB: blackjack-royale-db  # Updated database name
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  blackjack-royale-app:  # Updated service name
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Path to your Dockerfile (if it's in the same directory)
+    container_name: blackjack-royale-app  # Updated container name
+    ports:
+      - "8080:8080"
+    depends_on:
+      - blackjack-royale-db  # Updated service name in dependency
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://blackjack-royale-db:5432/blackjack-royale-db  # Updated database name
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+volumes:
+  postgres-data:

@@ -1,0 +1,12 @@
+--INSERT INTO player (player_name, player_balance) VALUES
+--('Wes', 1000.00),
+--('Lambda', 1000.00),
+--('Alpha', 1000.00),
+--('Gamma', 1000.00),
+--('Beta', 1000.00),
+--('Sigma', 1000.00),
+--('Theta', 1000.00),
+--('Phi', 1000.00),
+--('Psi', 1000.00),
+--('Mu', 1000.00),
+--('Omega', 1000.00);

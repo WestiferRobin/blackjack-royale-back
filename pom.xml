@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.mu</groupId>
 	<artifactId>blackjack-royale</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0</version>
 	<name>blackjack-royale</name>
 	<description>This is the </description>
 	<properties>
