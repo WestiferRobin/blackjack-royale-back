@@ -11,12 +11,14 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - blackjack-royale-network  # Connect to the custom network
 
-  blackjack-royale-app:  # Updated service name
+  blackjack-royale-back:  # Updated service name
     build:
       context: .  # Use the current directory as the build context
       dockerfile: Dockerfile  # Path to your Dockerfile (if it's in the same directory)
-    container_name: blackjack-royale-app  # Updated container name
+    container_name: blackjack-royale-back  # Updated container name
     ports:
       - "8080:8080"
     depends_on:
@@ -25,6 +27,11 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://blackjack-royale-db:5432/blackjack-royale-db  # Updated database name
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
+    networks:
+      - blackjack-royale-network  # Connect to the custom network
 
 volumes:
   postgres-data:
+    
+networks:
+  blackjack-royale-network:

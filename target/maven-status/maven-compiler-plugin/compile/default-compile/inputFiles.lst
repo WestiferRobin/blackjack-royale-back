@@ -1,5 +1,10 @@
-/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/dto/response/TestResponseDTO.java
-/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/dto/request/TestRequestDTO.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/service/PlayerServiceImpl.java
 /Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/BlackjackRoyaleApplication.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/componet/PlayerConverter.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/service/PlayerService.java
 /Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/config/CorsConfig.java
-/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/controller/TestController.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/model/Player.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/model/GameSession.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/controller/PlayerController.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/dto/PlayerDto.java
+/Users/wesleywebb/Dev/PortProjects/BlackjackRoyale/blackjack-royale-back/src/main/java/com/mu/blackjackroyale/repository/PlayerRepository.java
