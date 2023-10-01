@@ -32,6 +32,6 @@ services:
 
 volumes:
   postgres-data:
-    
+
 networks:
   blackjack-royale-network:
