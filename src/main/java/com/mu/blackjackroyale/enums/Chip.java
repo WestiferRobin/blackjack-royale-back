@@ -1,4 +1,4 @@
-package com.mu.blackjackroyale.local.chips;
+package com.mu.blackjackroyale.enums;
 
 public enum Chip {
     White(1),

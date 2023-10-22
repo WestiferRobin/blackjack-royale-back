@@ -1,15 +1,14 @@
-package com.mu.blackjackroyale.local.drawer.shoe;
+package com.mu.blackjackroyale.model.shoe;
 
-import com.mu.blackjackroyale.local.drawer.cards.Card;
-import com.mu.blackjackroyale.local.drawer.cards.CardDeck;
-import com.mu.blackjackroyale.local.drawer.Drawer;
+import com.mu.blackjackroyale.factories.DeckFactory;
+import com.mu.blackjackroyale.model.cards.Card;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-public class Shoe implements Drawer {
+public class Shoe {
     private Stack<Card> cards = new Stack<>();
 
     private boolean isShuffled;
@@ -30,7 +29,7 @@ public class Shoe implements Drawer {
         var decksOfCards = new ArrayList<Card>();
         int count = 0;
         while (count < deckSize) {
-            var cardDeck = CardDeck.createDeck(this.isShuffled);
+            var cardDeck = DeckFactory.createDeck(this.isShuffled);
             for (var card : cardDeck) {
                 decksOfCards.add(card);
             }
@@ -42,27 +41,22 @@ public class Shoe implements Drawer {
         }
     }
 
-    @Override
     public int size() {
         return this.cards.size();
     }
 
-    @Override
     public void shuffle() {
         Collections.shuffle(this.cards);
     }
 
-    @Override
     public void reload() {
         initDeck();
     }
 
-    @Override
     public boolean isEmpty() {
         return this.cards.isEmpty();
     }
 
-    @Override
     public List<Card> dealAllCards() {
         var allCards = new ArrayList<Card>();
         while (!this.isEmpty()) {
@@ -72,7 +66,6 @@ public class Shoe implements Drawer {
         return allCards;
     }
 
-    @Override
     public List<Card> dealCards(int times) {
         int count = 0;
         var rangeCards = new ArrayList<Card>();
@@ -84,7 +77,6 @@ public class Shoe implements Drawer {
         return rangeCards;
     }
 
-    @Override
     public Card dealCard() {
         return this.cards.pop();
     }

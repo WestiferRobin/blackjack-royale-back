@@ -1,4 +1,6 @@
-package com.mu.blackjackroyale.local.drawer.cards;
+package com.mu.blackjackroyale.model.cards;
+
+import com.mu.blackjackroyale.constants.CardConstants;
 
 public class Card {
     private String value;

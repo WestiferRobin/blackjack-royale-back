@@ -1,11 +1,27 @@
-package com.mu.blackjackroyale.local.chips;
+package com.mu.blackjackroyale.model.chips;
 
-import java.util.Hashtable;
+import com.mu.blackjackroyale.enums.Chip;
+import jakarta.persistence.*;
+
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
+@Entity
+@Table(name = "chip_banks")
 public class ChipBank {
 
-    private Map<Chip, Integer> bank = new Hashtable<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pid")
+    private UUID Id;
+    public UUID getId() { return this.Id; }
+
+    @ElementCollection
+    @CollectionTable(name = "chip_bank_items", joinColumns = @JoinColumn(name = "chip_bank_id"))
+    @MapKeyEnumerated(EnumType.STRING)
+    @MapKeyColumn(name = "chip")
+    private Map<Chip, Integer> bank = new HashMap<>();
     public Map<Chip, Integer> getBank() { return this.bank; }
 
     public ChipBank() {

@@ -1,9 +1,10 @@
-package com.mu.blackjackroyale.local.player;
+package com.mu.blackjackroyale.model.player;
 
-import com.mu.blackjackroyale.local.chips.ChipBank;
-import com.mu.blackjackroyale.local.chips.ChipBet;
-import com.mu.blackjackroyale.local.drawer.Drawer;
-import com.mu.blackjackroyale.local.drawer.cards.Card;
+import com.mu.blackjackroyale.model.chips.ChipBank;
+import com.mu.blackjackroyale.model.chips.ChipBet;
+import com.mu.blackjackroyale.model.cards.Card;
+import com.mu.blackjackroyale.model.shoe.Shoe;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,18 +23,27 @@ Players:
             - note that use the data for tensorflow model for betting
 */
 
+@Entity
+@Table(name = "players")
 public abstract class Player {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pid")
     private UUID Id;
     public UUID getId() { return this.Id; }
-    private List<Card> hand = new ArrayList<>();
+
+    @Column(name = "name")
+    private String name;
+    public String getName() { return this.name; }
+
+    private List<Card> hand;
     public List<Card> getHand() { return this.hand; }
 
     private ChipBank chipBank = new ChipBank();
     public ChipBank getChipBank() { return this.chipBank; }
 
     public Player() {
-        this.Id = UUID.randomUUID();
     }
 
     @Override
@@ -74,7 +84,7 @@ public abstract class Player {
         this.hand.clear();
     }
 
-    abstract public void playTurn(Player opponent, Drawer drawer);
+    abstract public void playTurn(Player opponent, Shoe shoe);
 
     abstract public ChipBet placeBet(int minValue, int maxValue);
 

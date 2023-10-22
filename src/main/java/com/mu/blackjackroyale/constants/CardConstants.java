@@ -1,4 +1,4 @@
-package com.mu.blackjackroyale.local.drawer.cards;
+package com.mu.blackjackroyale.constants;
 
 import java.util.Arrays;
 import java.util.List;

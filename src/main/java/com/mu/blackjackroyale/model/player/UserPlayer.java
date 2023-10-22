@@ -1,9 +1,9 @@
-package com.mu.blackjackroyale.local.player;
+package com.mu.blackjackroyale.model.player;
 
-import com.mu.blackjackroyale.local.chips.Chip;
-import com.mu.blackjackroyale.local.chips.ChipBet;
-import com.mu.blackjackroyale.local.drawer.Drawer;
-import com.mu.blackjackroyale.local.drawer.cards.Card;
+import com.mu.blackjackroyale.enums.Chip;
+import com.mu.blackjackroyale.model.cards.Card;
+import com.mu.blackjackroyale.model.chips.ChipBet;
+import com.mu.blackjackroyale.model.shoe.Shoe;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ public class UserPlayer extends Player {
     private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void playTurn(Player opponent, Drawer drawer) {
+    public void playTurn(Player opponent, Shoe shoe) {
         while (this.calculateHandValue() <= 21) {
             System.out.println();
             System.out.println(this.toString());
@@ -33,11 +33,11 @@ public class UserPlayer extends Player {
                 Card card;
                 switch (choice) {
                     case 1:
-                        card = drawer.dealCard();
+                        card = shoe.dealCard();
                         this.receiveCard(card);
                         break;
                     case 3:
-                        card = drawer.dealCard();
+                        card = shoe.dealCard();
                         card.flip();
                         this.receiveCard(card);
                         return;

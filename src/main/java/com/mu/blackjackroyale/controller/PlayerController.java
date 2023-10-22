@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController()
 @RequestMapping("/player")
@@ -22,7 +23,7 @@ public class PlayerController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<PlayerDto> getPlayer(@PathVariable int id) {
+    public ResponseEntity<PlayerDto> getPlayer(@PathVariable UUID id) {
         return playerService.getPlayerById(id);
     }
 

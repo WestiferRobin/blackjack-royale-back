@@ -1,4 +1,6 @@
-package com.mu.blackjackroyale.local.chips;
+package com.mu.blackjackroyale.model.chips;
+
+import com.mu.blackjackroyale.enums.Chip;
 
 import java.util.Hashtable;
 import java.util.Map;

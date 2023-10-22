@@ -1,9 +1,9 @@
-package com.mu.blackjackroyale.local.games;
+package com.mu.blackjackroyale.model.games;
 
-import com.mu.blackjackroyale.local.chips.ChipBet;
-import com.mu.blackjackroyale.local.drawer.Drawer;
-import com.mu.blackjackroyale.local.player.Dealer;
-import com.mu.blackjackroyale.local.player.Player;
+import com.mu.blackjackroyale.model.chips.ChipBet;
+import com.mu.blackjackroyale.model.player.Dealer;
+import com.mu.blackjackroyale.model.player.Player;
+import com.mu.blackjackroyale.model.shoe.Shoe;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -16,8 +16,8 @@ public class Game {
     public Dealer getDealer() { return this.dealer; }
     private List<Player> players;
     public List<Player> getPlayers() { return this.players; }
-    private Drawer drawer;
-    public Drawer getDrawer() { return this.drawer; }
+    private Shoe shoe;
+    public Shoe getShoe() { return this.shoe; }
     private Map<UUID, ChipBet> bets = new Hashtable<>();
     public Map<UUID, ChipBet> getBets() { return this.bets; }
 
@@ -30,13 +30,13 @@ public class Game {
     public Game(
         int minBet,
         int maxBet,
-        Drawer drawer,
+        Shoe shoe,
         Dealer dealer,
         List<Player> players
     ) {
         this.minBet = minBet;
         this.maxBet = maxBet;
-        this.drawer = drawer;
+        this.shoe = shoe;
         this.dealer = dealer;
         this.players = players;
     }
@@ -106,10 +106,10 @@ public class Game {
     private void dealHands() {
         for (int times = 0; times < 2; times++) {
             for (var player : this.getPlayers()) {
-                var card = this.getDrawer().dealCard();
+                var card = this.getShoe().dealCard();
                 player.receiveCard(card);
             }
-            var card = this.getDrawer().dealCard();
+            var card = this.getShoe().dealCard();
             if (times == 1) {
                 card.flip();
             }
@@ -136,12 +136,12 @@ public class Game {
     public void playersTurn() {
         // each player makes a turn
         for (var player : this.getPlayers()) {
-            player.playTurn(this.getDealer(), this.getDrawer());
+            player.playTurn(this.getDealer(), this.getShoe());
         }
     }
 
     public void dealerTurn() {
-        this.getDealer().playTurn(null, this.getDrawer());
+        this.getDealer().playTurn(null, this.getShoe());
     }
 
     private void handleEarnings() {

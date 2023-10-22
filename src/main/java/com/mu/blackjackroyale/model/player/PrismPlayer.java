@@ -1,11 +1,11 @@
-package com.mu.blackjackroyale.local.player;
+package com.mu.blackjackroyale.model.player;
 
-import com.mu.blackjackroyale.local.chips.ChipBet;
-import com.mu.blackjackroyale.local.drawer.Drawer;
+import com.mu.blackjackroyale.model.chips.ChipBet;
+import com.mu.blackjackroyale.model.shoe.Shoe;
 
 public class PrismPlayer extends Player {
     @Override
-    public void playTurn(Player opponent, Drawer drawer) {
+    public void playTurn(Player opponent, Shoe shoe) {
 
     }
 
